@@ -1,8 +1,8 @@
-var router = Router();
-var bcrypt = require('bcrypt');
+var router = require('express').Router();
+var bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken');
 
-var User = require('../db').import('../models/user');
+var User = require('../models/user');
 
 router.post('/signup', (req, res) => {
     User.create({
@@ -23,8 +23,8 @@ router.post('/signup', (req, res) => {
             function signupFail(err) {
                 res.status(500).send(err.message)
             }
-        )
-})
+        );
+});
 
 router.post('/signin', (req, res) => {
     User.findOne({ where: { username: req.body.user.username } }).then(user => {
@@ -45,7 +45,7 @@ router.post('/signin', (req, res) => {
             res.status(403).send({ error: "User not found." })
         }
 
-    })
-})
+    });
+});
 
 module.exports = router;

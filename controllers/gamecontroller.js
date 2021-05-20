@@ -1,5 +1,5 @@
 var router = require('express').Router();
-var Game = require('../db').import('../models/game');
+var Game = require('../models/game');
 
 router.get('/all', (req, res) => {
     Game.findAll({ where: { owner_id: req.user.id } })
@@ -16,8 +16,8 @@ router.get('/all', (req, res) => {
                     message: "Data not found"
                 })
             }
-        )
-})
+        );
+});
 
 router.get('/:id', (req, res) => {
     Game.findOne({ where: { id: req.params.id, owner_id: req.user.id } })
@@ -33,8 +33,8 @@ router.get('/:id', (req, res) => {
                     message: "Data not found."
                 })
             }
-        )
-})
+        );
+});
 
 router.post('/create', (req, res) => {
     Game.create({
@@ -56,8 +56,8 @@ router.post('/create', (req, res) => {
             function createFail(err) {
                 res.status(500).send(err.message)
             }
-        )
-})
+        );
+});
 
 router.put('/update/:id', (req, res) => {
     Game.update({
@@ -87,8 +87,8 @@ router.put('/update/:id', (req, res) => {
                 })
             }
 
-        )
-})
+        );
+});
 
 router.delete('/remove/:id', (req, res) => {
     Game.destroy({
@@ -110,7 +110,7 @@ router.delete('/remove/:id', (req, res) => {
                 error: err.message
             })
         }
-    )
-})
+    );
+});
 
-module.exports = routers;
+module.exports = router;
