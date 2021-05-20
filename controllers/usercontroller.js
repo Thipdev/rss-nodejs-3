@@ -23,8 +23,8 @@ router.post('/signup', (req, res) => {
             function signupFail(err) {
                 res.status(500).send(err.message)
             }
-        )
-})
+        );
+});
 
 router.post('/signin', (req, res) => {
     User.findOne({ where: { username: req.body.user.username } }).then(user => {
@@ -45,7 +45,7 @@ router.post('/signin', (req, res) => {
             res.status(403).send({ error: "User not found." })
         }
 
-    })
-})
+    });
+});
 
 module.exports = router;
