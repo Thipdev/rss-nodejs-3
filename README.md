@@ -1,7 +1,7 @@
 # Task 3. Debug in Node.js
 
 1. Задание https://github.com/rolling-scopes-school/basic-nodejs-2021Q2/blob/master/descriptions/debug-nodejs.md
-2. Дата сдачи **.05.2021 / дата дэдлайна 23.05.2021
+2. Дата сдачи 20.05.2021 / дата дэдлайна 23.05.2021
 3. Самооценка 60 (Обнаружено 10 проблем)
 
 обнаруженные проблемы
